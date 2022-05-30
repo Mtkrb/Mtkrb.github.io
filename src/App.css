@@ -109,6 +109,12 @@ a {
   color: #FFF;
 }
 
+.start-timer,
+.stop-timer,
+.reset-timer {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   #title {
     font-size: 3em;
