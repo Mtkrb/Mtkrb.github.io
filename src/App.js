@@ -11,20 +11,19 @@ function App() {
     var initialSeconds = workLength;
 
     var checks = 0;
-    var phaseType = 0; // 0 = work phase, 1 = break phase (both short and long)
+    var phaseType = 0; 
 
-    var countDownInterval; // interval id
+    var countDownInterval; 
 
     function countDown() {
       if (seconds <= 0) {
-        phaseType = (phaseType + 1) % 2; // toggle between phase 0 and 1
+        phaseType = (phaseType + 1) % 2; 
         if (phaseType === 0) {
           $("#phase").html("Phase: Work");
           setTime(workLength);
         } else {
           $("#phase").html("Phase: Break");
           if (checks < 4) {
-            //determine short or long break
             addCheck();
             setTime(shortBreakLength);
           } else {
@@ -56,12 +55,10 @@ function App() {
       displayTime();
     }
 
-    // timer controls
     $(".start-timer").click(startTimer);
     $(".stop-timer").click(stopTimer);
     $(".reset-timer").click(resetTimer);
 
-    // + and - buttons
     $(".length-setter").click(function () {
       var input = $(this).siblings("input");
       if ($(this).html() === "-") {
@@ -69,14 +66,11 @@ function App() {
       } else if ($(this).html() === "+") {
         input.val(parseInt(input.val()) + 1);
       } else {
-        // should be unreachable
       }
       validifyInput(input);
     });
 
-    // option input events
     $("#options input[type=text]").on("input", function () {
-      // prevent non-number input
       if (this.value) {
         var number = this.value.replace(/[^0-9]/g, "");
         $(this).val(number);
@@ -87,7 +81,6 @@ function App() {
     });
 
     function validifyInput(element) {
-      // force input to be between 1 to 999
       var newValue = Math.max(1, Math.min(parseInt(element.val()), 999)) || 1;
       element.val(newValue);
       updateOptions();
@@ -100,10 +93,8 @@ function App() {
       resetTimer();
     }
 
-    // canvas clock
     function draw() {
       var ctx = document.getElementById("timer-canvas").getContext("2d");
-      // clear canvas
       ctx.clearRect(0, 0, 300, 300);
       ctx.beginPath();
       ctx.moveTo(120, 120);
