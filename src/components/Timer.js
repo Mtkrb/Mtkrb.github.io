@@ -7,7 +7,7 @@ function Timer() {
       <div id="content">
         <div id="checks">
           <span className="check">
-            <i classNamey="fa fa-check fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-check fa-2x" aria-hidden="true"></i>
           </span>
           <span className="check">
             <i className="fa fa-check fa-2x" aria-hidden="true"></i>

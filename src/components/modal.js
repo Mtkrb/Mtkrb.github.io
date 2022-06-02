@@ -1,32 +1,49 @@
 import React from "react";
 
-export function modal() {
-  return (
-    <div>
-      <div id="options" style={{ display: "none" }}>
-        <div className="timer-option">
-          <div>Work Length</div>
-          <button className="length-setter">-</button>
-          <input type="text" name="work-length" value="25" />
-          <button className="length-setter">+</button>
-        </div>
+export default class Modal extends React.Component {
+  state = {
+    isOpen: false,
+  };
 
-        <div className="timer-option">
-          <div>Break Length (Short)</div>
-          <button className="length-setter">-</button>
-          <input type="text" name="short-break-length" value="5" />
-          <button className="length-setter">+</button>
-        </div>
+  render() {
+    return (
+      <React.Fragment>
+        <button
+          className="settings"
+          onClick={() => this.setState({ isOpen: true })}
+        ></button>
 
-        <div className="timer-option">
-          <div>Break Length (Long)</div>
-          <button className="length-setter">-</button>
-          <input type="text" name="long-break-length" value="15" />
-          <button className="length-setter">+</button>
-        </div>
-      </div>
-    </div>
-  );
+        {this.state.isOpen && (
+          <div className="modal">
+            <div className="modal-body">
+              <div>
+                <label htmlFor="pomodoro">Pomodoro</label>
+                <input id="pomodoro" type="number" value={25}/>
+              </div>
+              <div>
+                <label htmlFor="short-break">Shork Break</label>
+                <input id="short-break" type="number" value={5}/>
+              </div>
+              <div>
+                <label htmlFor="long-break">Long Break</label>
+                <input id="long-break" type="number" value={15}/>
+              </div>
+              <div>
+                <label htmlFor="break-interval">Number of pomodoro between break</label>
+                <input id="break-interval" type="number" value={4}/>
+              </div>
+              <div className="buttons">
+              <button>
+                Save
+              </button>
+              <button onClick={() => this.setState({ isOpen: false })}>
+                Cancel
+              </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </React.Fragment>
+    );
+  }
 }
-
-export default modal;

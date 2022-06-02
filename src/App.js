@@ -1,11 +1,10 @@
-
-import Header from "./components/Header";
+import Modal from "./components/modal";
 import Timer from "./components/Timer";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Modal />
       <Timer />
     </div>
   );
