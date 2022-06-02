@@ -158,11 +158,13 @@ a {
   display: flex;
   justify-content: center;
   padding-top: 5rem;
+  overflow: auto;
 }
 
 .modal-body {
   height: 550px;
-  width: 585px;
+  max-width: 585px;
+  width: 100%;
   border-radius: 30px;
   background: linear-gradient(
       90deg,
@@ -187,7 +189,6 @@ a {
   text-align: left;
   background: rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 0 10px;
   border-radius: 3px;
   border: 0;
 }
